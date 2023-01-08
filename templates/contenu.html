@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% block content %}
+<body onload="getDataContenu();getPlanteForJardinier();getJardinForContenu();">
+<div class="bodyMenuContainer">
+    <div id="menu" class="menu">
+        {% include 'menu.html' %}
+    </div>
+    <!-- detail Form -->
+    <div id="detailForm" class="detailForm" style="overflow:hidden ;overflow-y: scroll;">
+        <center>            
+            <h3>Detail Contenu</h3>
+            <div class="containerFormDetail">
+                <div class="containerInfoDetail">
+                    <div>Date de plantation : </div>
+                    <div id="datePlantationContenuDetail">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Qentite : </div>
+                    <div id="qteContenuDetail">Nassim </div>
+                </div>
+            </div>
+            <br>                
+       
+            <h3>Detail Jardin</h3>
+            <div class="containerFormDetail">
+                <img id="photoDetailJardin" src="" alt="" class="imgCompt">
+                <br>
+                <div id="nomtDetailJardinContenu">Nassim el</div>
+                <br>
+                <div class="containerInfoDetail">
+                    <div>Numero : </div>
+                    <div id="NumeroDetailJardinContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Adresse : </div>
+                    <div id="adresseDetailJardinierContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Ville : </div>
+                    <div id="villeDetailJardinierContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Superficier : </div>
+                    <div id="superficierDetailJardinierContenu">Nassim </div>
+                </div>
+            </div>
+            <br>                
+            <h3>Detail Plante</h3>
+            <div class="containerFormDetail">
+                <div class="containerInfoDetail">
+                    <div>Serie : </div>
+                    <div id="serieDetailPlanteContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Nom : </div>
+                    <div id="nomDetailPlanteContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Origine : </div>
+                    <div id="orogineDetailPlanteContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Type : </div>
+                    <div id="typeDetailPlanteContenu">Nassim </div>
+                </div>
+                <div class="containerInfoDetail">
+                    <div>Prix : </div>
+                    <div id="prixDetailPlanteContenu">Nassim </div>
+                </div>
+            </div>
+            <br>
+            <input type="button" onclick="hideDetailForm()" style="border-color: white;" class="btnInput" value="Reteur">
+            <br>
+            <br>
+
+        </center>
+     </div>
+    <!-- detail Form -->
+
+    <!-- formulaire -->
+    <div id="formulaire" class="formulaire">
+     <center>
+        <h3>Fromulaire Contenu</h3>
+        <br>
+        {% csrf_token %}
+        <div class="containerInputFormualaire">
+            <div> Date De plantation: </div>
+            <input type="date" id="datePlantationContenu" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Qentite : </div>
+            <input type="text" id="qteContenu" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Plante : </div>
+            <select id="planteContenu" class="textInputForm">
+                <option value="">Choisire une Plante</option>
+            </select>
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Jardin : </div>
+            <select id="jardinContenu" class="textInputForm">
+                <option value="">Choisire une Contenu</option>
+            </select>
+        </div>
+        <br>
+
+        <input type="button"  class="btnInput" id="submitContenu" onclick="submitContenu()" style="border-color: white;" value="Ajouter">
+        <input type="button" onclick="hideFormContenu()" style="border-color: white;" class="btnInput" value="Annuler">
+
+     </center>
+    </div>
+    <!-- formulaire -->
+    <div class="bodyContainer">
+        <h3>&nbsp;&nbsp;Gestion Des Contenu</h3>
+        <ion-icon class="iconMenu" onclick="hideShowMenu()" name="menu-outline"></ion-icon>
+        <!-- charts -->
+        <center>
+            <div class="charts">
+                 <div class="itemChart">
+                    <canvas height="190" id="getNbreJardinParContenuChart"></canvas>                            
+                 </div>
+                 <div class="itemChart">
+                    <canvas height="190" id="getNbrePlanteParJardinChart"></canvas>                            
+
+                 </div>
+            </div>
+            <br>
+            <div class="containerListAndLatest">
+                <div class="list">
+                    <input type="button" onclick="showForm()" class="btnInput btnNew" value="Nouvelle">
+                    <h3 class="titleList" >Liste des plant</h3>
+
+<br>
+<br>
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Date Plantation" id="datePlantationSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Qentite" id="qteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Nom Jardin" id="nomJardinSearch" class="textInput serchInputThree">
+    
+</div> 
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Nom Plante" id="nomPlanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Type Plante" id="typelanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Ville Jardin" id="villeJardinSearch" class="textInput serchInputThree">
+</div> 
+<br>
+<input type="button" onclick="searchContenu()" class="btnInput" value="Chercher">
+<input type="button" onclick="getDataPlante()" class="btnInput" value="Actualiser">
+<br>
+<br>
+                    <div class="containerListTable">
+                        <table>
+                <tr id="header">
+                    <th>Jardin</th>
+                    <th>Nom Jardin</th>
+                    <th>Nom Plante</th>
+                    <th>Type Plante</th>
+                    <th>Qte</th>
+                    <th>Date Plantation</th>
+                    <th colspan="3">Options</th>
+                </tr>
+                <tbody id="listContenu">
+                </tbody>
+            </table>
+                
+                       </div>
+        <br>
+        <ion-icon class="Icon Icon_nav" onclick="navDataPlante('pre')" name="chevron-back-outline"></ion-icon>
+        <ion-icon class="Icon Icon_nav" onclick="navDataPlante('nex')" name="chevron-forward-outline"></ion-icon>
+                </div><br>
+                <div class="latest">
+                    <center>
+                        <h3>Les Dernier Ajout</h3>
+                        <div id="listLatestAdded">
+  
+                        </div>
+                      </center>
+                </div>
+            </div>
+            <br>
+            <br>
+        </center>
+        <!-- charts -->
+    </div>
+</div>
+</body>
+
+{% endblock %}

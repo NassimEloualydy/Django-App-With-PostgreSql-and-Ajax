@@ -1,0 +1,21 @@
+<center>
+    <h3>Menu</h3>
+    <img src="{{ request.session.photo }}"  class="imgCompt">
+    <br>
+    {{ request.session.nom }} {{ request.session.prenom }}
+    <br>
+    <br>
+    <div onclick="hideMneu('/plante')" class="menuItem">Plante</div>
+    <br>
+        <div onclick="hideMneu('/jardinier')" class="menuItem">Jardinier</div>
+    <br>
+    <div onclick="hideMneu('/jardin')" class="menuItem">Jardin</div>
+    <br>
+    <div onclick="hideMneu('/contenu')" class="menuItem">Contenu</div>
+    <br>
+    <div onclick="hideMneu('/compt')" class="menuItem">Votre Compt</div>
+    <br>
+    
+    <div onclick="Quiiter()" class="menuItem">Quitter</div>
+
+</center>

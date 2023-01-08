@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<body >
+<div class="bodyMenuContainer">
+    <div id="menu" class="menu">
+        {% include 'menu.html' %}
+    </div>
+    <div class="bodyContainer">
+     <center>
+        <ion-icon class="iconMenu" onclick="hideShowMenu()" name="menu-outline"></ion-icon>
+
+        <h3>Moddifier votre Compt</h3>
+        {% csrf_token %}
+        <div class="containerInputFormualaire">
+            <div> Photo: </div>
+            <input type="file" id="photoCompt">
+        </div>
+<br>
+
+        <div class="containerInputFormualaire">
+            <div> CNI: </div>
+            <input type="text" id="cniCompt" value="{{request.session.cni}}" class="textInputForm" style="border: 1px solid white;border-bottom-color: rgb(22, 51, 22);background-color: white;color: black;">
+        </div>
+<br>
+
+        <div class="containerInputFormualaire">
+            <div> Nom: </div>
+            <input type="text" id="nomCompt" value="{{request.session.nom}}" class="textInputForm" style="border: 1px solid white;border-bottom-color: rgb(22, 51, 22);background-color: white;color: black;">
+        </div>
+        <br>
+
+        <div class="containerInputFormualaire">
+            <div> Prenom: </div>
+            <input type="text" id="prenomCompt" value="{{request.session.prenom}}" class="textInputForm" style="border: 1px solid white;border-bottom-color: rgb(22, 51, 22);background-color: white;color: black;">
+        </div>
+<br>
+        <div class="containerInputFormualaire">
+            <div> Email: </div>
+            <input type="text" id="emailCompt" value="{{request.session.email}}" class="textInputForm" style="border: 1px solid white;border-bottom-color: rgb(22, 51, 22);background-color: white;color: black;">
+        </div>
+
+<br>
+<div class="containerInputFormualaire">
+    <div> Mote de passe: </div>
+    <input type="text" id="pwCompt" value="{{request.session.pw}}" class="textInputForm" style="border: 1px solid white;border-bottom-color: rgb(22, 51, 22);background-color: white;color: black;">
+
+</div>
+
+<br>
+
+<input type="button"  onclick="updateCompt()" class="btnInput" value="Moddifier">
+<input type="hidden" value="{{request.session.id}}" id="idCompt">
+     </center>
+    </div>
+</div>
+</body>
+
+{% endblock %}

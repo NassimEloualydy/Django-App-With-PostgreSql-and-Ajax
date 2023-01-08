@@ -1,0 +1,607 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*{
+    font-family: 'Nunito', sans-serif;
+   transition: .3s;
+}
+body{
+ margin: 0;
+ padding: 0;   
+}
+.body{
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.itemLogin{
+    width: 50%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+}
+.itemLogin:nth-child(1){
+    color: white;
+    background-color: rgb(22, 51, 22);
+}
+.imagLogin{
+    width: 500px;
+    height: 500px;
+    background-image: url('../images/login.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: contain;
+}
+.containerForm{
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* left: 100%; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.login,
+.inscrire{
+    width: 50%;
+    height: 100%;
+}
+.containerFormInput{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textInput{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+.btnInput{
+    padding: 5px;
+    background-color: rgb(22, 51, 22);
+    color: white;
+    border: 1px solid rgb(22, 51, 22);
+    border-radius: 5px;
+}
+.btnInput:hover{
+    background-color: white;
+    color: rgb(22, 51, 22);
+    border: 1px solid rgb(22, 51, 22);
+    border-radius: 5px;
+}
+.bodyMenuContainer{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.menu{
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(22, 51, 22);
+    color: white;
+    position: relative;
+    z-index: 9999999;
+
+}
+.showMenu{
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(22, 51, 22);
+    color: white;
+    position: relative;
+    z-index: 9999999;
+}
+
+.bodyContainer{
+    width: 80%;
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+.iconMenu{
+    font-size: 35px;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+    z-index: 9999;
+    visibility: hidden;
+}
+.imgCompt{
+    width: 240px;
+    height: 240px;
+    border: 1px solid white;
+    border-radius: 240px;
+    object-fit: cover;
+}
+.menuItem{
+    width: 90%;
+    padding: 5px;
+    background-color: rgb(22, 51, 22);
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.menuItem:hover{
+    width: 90%;
+    padding: 5px;
+    background-color: white;
+    border: 1px solid white;
+    color: rgb(22, 51, 22);
+    border-radius: 5px;
+
+}
+.containerListAndLatest{
+    width: 98%;
+    height: 110vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list{
+    width: 80%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+   position: relative;
+}
+.latest{
+    width: 18%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+.btnNew{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.formulaire{
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -20%;
+    background-color: rgb(22, 51, 22);
+    z-index: 9999;
+    color: white;
+}
+.showFormulaire{
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgb(22, 51, 22);
+    z-index: 9999;
+    color: white;
+}
+.containerInputFormualaire{
+    display: block;
+    text-align: left;
+    width: 95%;
+}
+.textInputForm{
+    color: white;
+    border-bottom-color: white;border: 1px solid rgb(22, 51, 22);
+    outline: none;
+    background-color: rgb(22, 51, 22);
+    width: 95%;
+    border-radius: 0;
+}
+.Icon{
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px ;
+  }
+  .Icon_compt{
+    color: white;
+    border-color: white;
+    transition: .3s;
+    cursor: pointer;
+     
+  }
+  .Icon_compt:hover{
+    background-color: white;
+    color: rgb(22, 51, 22);
+    transition: .3s;
+  }
+
+  .Icon_nav{
+    color: rgb(22, 51, 22);
+    border-color: rgb(22, 51, 22);
+    transition: .3s;
+    cursor: pointer;
+  }
+  .Icon_nav:hover{
+      background-color: rgb(22, 51, 22);
+      color: white;
+      transition: .3s;
+    }
+
+  .Icon_delete{
+    color: rgb(163, 4, 4);
+    border-color: rgb(163, 4, 4);
+    transition: .3s;
+    cursor: pointer;
+  }
+  .Icon_delete:hover{
+      background-color: rgb(163, 4, 4);
+      color: white;
+      transition: .3s;
+    }
+    .Icon_update{
+      color: rgb(195, 224, 31);
+      border-color: rgb(195, 224, 31);
+      transition: .3s;
+      cursor: pointer;
+    }
+    .Icon_update:hover{
+        background-color: rgb(195, 224, 31);
+        color: white;
+        transition: .3s;
+      }
+      .Icon_details{
+          color: rgb(127, 193, 255);
+          border-color: aquamarine;
+          transition: .3s;
+          cursor: pointer;
+        }
+        .Icon_details:hover{
+            background-color: aquamarine;
+            color: white;
+            transition: .3s;
+          }
+        table {
+            border-collapse: collapse;
+            width: 98%;
+            height: 200px;
+            border: 1px solid #bdc3c7;
+        }
+        
+        tr {
+            transition: all .2s ease-in;
+            cursor: pointer;
+        }
+        
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        #header {
+            background-color: rgb(22, 51, 22);
+            color: #fff;
+        }
+        .titleList{
+            position: absolute;
+            top: 5px;
+            left: 10px;
+        }
+        .containerSearch{
+            width: 98%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .serchInputThree{
+            width: 30%;
+        }
+        .serchInputFoor{
+            width: 23%;
+        }
+        .charts{
+    width: 98%;
+    height: 50vh;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+.chartsJardinier{
+    height: 50vh;
+}
+.itemChart{
+    width: 45%;
+    height: 100%;   
+}
+.itemChartJardinier{
+    width: 45%;
+    height: 80%;   
+    margin-top: 50px;
+}
+
+#chartBar{
+position: absolute;
+top: 10px;
+left: 10px;
+}
+        .comptImage{
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 40px;
+            object-fit: cover;
+        }
+        .detailForm{
+            width: 40%;
+            height: 100vh;
+            background-color: rgb(22, 51, 22);
+            z-index: 9999;
+            position: fixed;
+            top: 0;
+            right: -40%;
+            color: white;
+        }
+    .showDetailForm{
+        width: 40%;
+        height: 100vh;
+        background-color: rgb(22, 51, 22);
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: white;
+    }
+    .containerFormDetail{
+        width: 80%;
+        /* height:90vh ; */
+        padding: 10px;
+        border: 1px solid white;
+        border-radius: 5px;
+        
+    }
+    .containerInfoDetail{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 13px 0;
+    }
+    .itemCountChart{
+        width: 80%;
+        height: 100px;
+        border: 1px solid black;
+        border-radius: 5px;
+        position: relative;
+    }
+    .iconChart{
+        font-size: 40px;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        padding: 15px;
+        border: 1px solid rgb(169, 208, 245);
+        color: rgb(9, 136, 254);
+        background-color: rgb(169, 208, 245);
+        border-radius: 5px;
+    }
+    .iconWomen{
+        font-size: 40px;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        padding: 15px;
+        border: 1px solid rgb(225, 169, 245);
+        color: rgb(196, 67, 243);
+        background-color: rgb(225, 169, 245);
+        border-radius: 5px;
+
+    }
+    .latestItemAdded{
+        width: 90%;
+        padding: 5px;
+        border: 1px solid black;
+        border-radius: 5px;
+        text-align: left;
+display: flex;
+margin-top: 5px;
+    }
+    #fullNameLatesAdded{
+        position: relative;
+        top: 10px;
+        left: 3px;
+    }
+@media(max-width:1000px){
+    .detailForm{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 51, 22);
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        color: white;
+    }
+
+    .showDetailForm{
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 51, 22);
+        z-index: 9999;
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: white;
+    }
+    .charts{
+        width: 98%;
+        height: 80vh;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .chartsJardinier{
+        width: 98%;
+        height: 150vh;
+        border: 1px solid black;
+        border-radius: 5px;
+        display: block;
+        justify-content: center;
+        align-items: center;
+
+    }
+    .itemChart{
+        width: 95%;
+        height: 50%;
+        
+    }
+    
+    .containerSearch{
+        width: 98%;
+        display: block;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .serchInputThree{
+        width: 95%;
+    }
+    .serchInputFoor{
+        width: 95%;
+    }
+
+    .containerListTable{
+        width: 98%;
+        overflow: hidden;
+        overflow-x: scroll;
+    }
+
+    .formulaire{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: rgb(22, 51, 22);
+        z-index: 9999;
+        color: white;
+    }
+    .showFormulaire{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: rgb(22, 51, 22);
+        z-index: 9999;
+        color: white;
+    }
+        
+ .containerListAndLatest{
+    width: 98%;
+    height: 210vh;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+.list{
+    width: 100%;
+    height: 70%;
+    border: 1px solid black;
+    border-radius: 5px;
+
+}
+.latest{
+    width: 100%;
+    height: 28%;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+    .iconMenu{
+        font-size: 35px;
+        position: absolute;
+        top: 10px;
+        right: 25px;
+        cursor: pointer;
+        z-index: 9999;
+        visibility: visible;
+    }
+    
+    .bodyMenuContainer{
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: block;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .menu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 51, 22);
+        color: white;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        z-index: 9999999;
+
+    }
+    .showMenu{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(22, 51, 22);
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+z-index: 9999999;
+    }
+    .bodyContainer{
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    
+
+    .containerFormInput{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .body{
+        width: 100%;
+        height: 100vh;
+        overflow-y: hidden;
+        display: block;
+        justify-content: center;
+        align-items: center;
+    }
+    .itemLogin:nth-child(1){
+        color: white;
+        background-color: rgb(22, 51, 22);
+        width: 0;
+        height: 0;
+    }
+    .itemLogin:nth-child(2){
+        width: 100%;
+        height: 100vh;
+    }
+    .loginFormCnx{
+        width: 100%;
+        height: 100vh;
+    }
+}

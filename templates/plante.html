@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block content %}
+<body onload="getDataPlante();">
+<div class="bodyMenuContainer">
+    <div id="menu" class="menu">
+        {% include 'menu.html' %}
+    </div>
+    <!-- formulaire -->
+    <div id="formulaire" class="formulaire">
+     <center>
+        <h3>Fromulaire Plante</h3>
+        <br>
+        {% csrf_token %}
+        <div class="containerInputFormualaire">
+            <div> Serie: </div>
+            <input type="text" id="seriePlante" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Nom : </div>
+            <input type="text" id="nomPlante" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Origine : </div>
+            <input type="text" id="originePlante" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Type : </div>
+            <select id="typePlante" class="textInputForm">
+                <option value="">Choisire une type</option>
+                <option value="Hortensia">Hortensia</option>
+                <option value="Lavande">Lavande</option>
+                <option value="Passiflore">Passiflore</option>
+                <option value="Oliviers">Oliviers</option>
+                <option value="Rhododendron">Rhododendron</option>
+                <option value="Érable du Japon">Érable du Japon</option>
+                <option value="Clématite">Clématite</option>
+                <option value="Glycine">Glycine</option>
+            </select>
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Prix : </div>
+            <input type="text" id="prixPlante" class="textInputForm">
+        </div>
+        <br>
+
+        <input type="button"  class="btnInput" id="submitPlante" onclick="submitPlante()" style="border-color: white;" value="Ajouter">
+        <input type="button" onclick="hideFormPlante()" style="border-color: white;" class="btnInput" value="Annuler">
+
+     </center>
+    </div>
+    <!-- formulaire -->
+    <div class="bodyContainer">
+        <h3>&nbsp;&nbsp;Gestion Des Plante</h3>
+        <ion-icon class="iconMenu" onclick="hideShowMenu()" name="menu-outline"></ion-icon>
+        <!-- charts -->
+        <center>
+            <div class="charts">
+                 <div class="itemChart">
+                    <canvas height="190" id="chartNbrePlanetByType"></canvas>                            
+                 </div>
+                 <div class="itemChart">
+                    <canvas height="190" id="chartNbrePlanetByTypeRedare"></canvas>                            
+
+                 </div>
+            </div>
+            <br>
+            <div class="containerListAndLatest">
+                <div class="list">
+                    <input type="button" onclick="showForm()" class="btnInput btnNew" value="Nouvelle">
+                    <h3 class="titleList" >Liste des plant</h3>
+
+<br>
+<br>
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Serie" id="seriePlanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Nom" id="nomPlanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" placeholder="Type" id="typePlanteSearch" class="textInput serchInputThree">
+    
+</div> 
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Origine" id="originePlanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="number" placeholder="Prix" id="prixPlanteSearch" class="textInput serchInputThree"><br><br>
+    <input type="text" style="visibility: hidden;" placeholder="Nom" id="emailCnx" class="textInput serchInputThree">
+    
+</div> 
+<br>
+<input type="button" onclick="searchPlante()" class="btnInput" value="Chercher">
+<input type="button" onclick="getDataPlante()" class="btnInput" value="Actualiser">
+
+<br>
+<br>
+                    <div class="containerListTable">
+                        <table>
+                <tr id="header">
+                    <th>Serie</th>
+                    <th>Nom</th>
+                    <th>Origine</th>
+                    <th>Type</th>
+                    <th>Prix</th>
+                    <th colspan="2">Options</th>
+                </tr>
+                <tbody id="listPlante">
+                </tbody>
+            </table>
+                
+                       </div>
+        <br>
+        <ion-icon class="Icon Icon_nav" onclick="navDataPlante('pre')" name="chevron-back-outline"></ion-icon>
+        <ion-icon class="Icon Icon_nav" onclick="navDataPlante('nex')" name="chevron-forward-outline"></ion-icon>
+                </div><br>
+                <div class="latest">
+                    <center>
+                        <h3>Nombre des Plante Par Prix : <span id="resulePlanteByPrice"></span></h3>
+                        <br>
+                        <input oninput="getPlanteByPrice()" type="text" id="getPlanteByPriceValue" placeholder="Donner un prix" style="width: 90%;" class="textInput">
+                        <br>
+                        <br>
+                        <select oninput="getPlanteByPrice()" style="width: 95%;" class="textInput" id="getPlanteByPrice">
+                        
+                            <option value="">Chosire un filtre</option>
+                            <option value="=">=</option>
+                        <option value="<"><</option>
+                        <option value=">">></option>
+                        </select>
+<br>
+<br>
+                    </center>
+                </div>
+            </div>
+            <br>
+            <br>
+        </center>
+        <!-- charts -->
+    </div>
+</div>
+</body>
+
+{% endblock %}

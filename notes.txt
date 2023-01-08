@@ -1,0 +1,8 @@
+Une société d’aménagement de jardins et espaces verts est spécialisée dans la création des jardins. Chaque jardin est composé d’un ensemble de plantes, et sous la responsabilité d’un jardinier pour l’entretien. La société souhaite développer une application client/serveur pour faciliter son travail et utilise la base de données «JardinVert » décrite par le schéma relationnel suivant :
+
+Plante (NumP,seri, nomP, origine,type, prix)
+Jardinier (cni,nom,prenom,photo,email,tel,date_embauch,sexe)
+Jardin(photo,num,nom,adresse,ville,superficier,#jardinier)
+
+Contenu (#Jardin,#plante, quantité, date_plantation)
+

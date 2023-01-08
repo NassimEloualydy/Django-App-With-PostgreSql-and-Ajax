@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% block content %}
+<body onload="getDataJardin();getJardinierForJardin();getNbrJardinParJardinier();getJardinParVille();getTheMosteRecomendedGardens();">
+
+
+<div class="bodyMenuContainer">
+    <div id="menu" class="menu">
+        {% include 'menu.html' %}
+    </div>
+        <!-- detail Form -->
+        <div id="detailForm" class="detailForm" style="overflow:hidden ;overflow-y: scroll;">
+            <center>
+                
+                <h3>Detail Jardin</h3>
+                <div class="containerFormDetail">
+                    <img id="photoDetailJardin" src="" alt="" class="imgCompt">
+                    <br>
+                    <div id="nomtDetailJardin">Nassim el</div>
+                    <br>
+                    <div class="containerInfoDetail">
+                        <div>Numero : </div>
+                        <div id="NumeroDetailJardin">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Adresse : </div>
+                        <div id="adresseDetailJardinier">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Ville : </div>
+                        <div id="villeDetailJardinier">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Superficier : </div>
+                        <div id="superficierDetailJardinier">Nassim </div>
+                    </div>
+                </div>
+                <br>                
+                <h3>Detail Jardinier</h3>
+                <div class="containerFormDetail">
+                    <img id="photoCompletDetailJardinierJardin" src="" alt="" class="imgCompt">
+                    <br>
+                    <div id="nomCompletDetailJardinierJardin">Nassim el</div>
+                    <br>
+                    <div class="containerInfoDetail">
+                        <div>CNI : </div>
+                        <div id="cniCompletDetailJardinierJardin">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Email : </div>
+                        <div id="emailCompletDetailJardinierJardin">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Telephone : </div>
+                        <div id="telCompletDetailJardinierJardin">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Date Embousch : </div>
+                        <div id="dateEmboushCompletDetailJardinierJardin">Nassim </div>
+                    </div>
+                    <div class="containerInfoDetail">
+                        <div>Sexe : </div>
+                        <div id="sexeCompletDetailJardinierJardin">Nassim </div>
+                    </div>
+                </div>
+                <br>
+                <input type="button" onclick="hideDetailForm()" style="border-color: white;" class="btnInput" value="Reteur">
+                <br>
+                <br>
+
+            </center>
+         </div>
+        <!-- detail Form -->
+    
+    <!-- formulaire -->
+    <div id="formulaire" class="formulaire">
+     <center>
+        <h3>Formulaire Jardin</h3>
+        <br>
+        {% csrf_token %}
+        <div class="containerInputFormualaire">
+            <div> Photo: </div>
+            <input type="file" id="photoJardin">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Numero : </div>
+            <input type="text" id="numJardin" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Nom : </div>
+            <input type="text" id="nomJardin" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Ville : </div>
+            <select id="villeJardin" class="textInputForm">
+                <option value="">Choisire une Ville</option>
+                <option value="Tanger - Tétouan - Al Hoceima">Tanger - Tétouan - Al Hoceima</option>
+                    <option value="Fès - Meknès">Fès - Meknès</option>
+                    <option value="Rabat - Salé - Kénitra">Rabat - Salé - Kénitra</option>
+                    <option value="Beni Mellal - Khénifra">Beni Mellal - Khénifra</option>
+                    <option value="Casablanca - Settat">Casablanca - Settat</option>
+                    <option value="Marrakech - Safi">Marrakech - Safi</option>
+                    <option value="Drâa - Tafilalet">Drâa - Tafilalet</option>
+                    <option value="Souss -Massa">Souss -Massa</option>
+                    <option value="Guelmim - Oued Noun">Guelmim - Oued Noun</option>
+                    <option value=" Laâyoune - Saguia al Hamra"> Laâyoune - Saguia al Hamra</option>
+                    <option value="Dakhla - Oued Ed-Dahab">Dakhla - Oued Ed-Dahab</option>
+            </select>
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Adresse : </div>
+            <input type="text" id="adresseJardin" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Superficier : </div>
+            <input type="text" id="superficierJardin" class="textInputForm">
+        </div>
+        <br>
+        <div class="containerInputFormualaire">
+            <div> Jardinier : </div>
+            <select id="jardinierJardin" class="textInputForm">
+                <option value="">Choisire une Jardin</option>
+            </select>
+        </div>
+        <br>
+
+        <input type="button"  class="btnInput" id="submitJardin" onclick="submitJardin()" style="border-color: white;" value="Ajouter">
+        <input type="button" onclick="hideFormJardin()" style="border-color: white;" class="btnInput" value="Annuler">
+
+     </center>
+    </div>
+    <!-- formulaire -->
+    <div class="bodyContainer">
+        <h3>&nbsp;&nbsp;Gestion Des Jardin</h3>
+        <ion-icon class="iconMenu" onclick="hideShowMenu()" name="menu-outline"></ion-icon>
+        <!-- charts -->
+        <center>
+            <div class="charts">
+                 <div class="itemChart">
+                    <canvas height="190" id="getNbrJardinParJardinierChart"></canvas>                            
+                 </div>
+                 <div class="itemChart">
+                    <canvas height="190" id="getJardinParVilleChart"></canvas>                            
+                 </div>
+            </div>
+            <br>
+            <div class="containerListAndLatest">
+                <div class="list">
+                    <input type="button" onclick="showForm()" class="btnInput btnNew" value="Nouvelle">
+                    <h3 class="titleList" >Liste des plant</h3>
+
+<br>
+<br>
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Numero" id="numeroJardinSearch" class="textInput serchInputFoor"><br><br>
+    <input type="text" placeholder="Nom" id="nomJardinSearch" class="textInput serchInputFoor"><br><br>
+    <input type="text" placeholder="Adresse" id="adresseJardinSearch" class="textInput serchInputFoor">    <br><br>
+    <input type="text" placeholder="Ville" id="villeJardinSearch" class="textInput serchInputFoor">
+</div> 
+<br>
+<div class="containerSearch">
+    <input type="text" placeholder="Superficier" id="superFicierJardinSearch" class="textInput serchInputFoor"><br><br>
+    <input type="text" placeholder="Nom Jardinier" id="nomJardinierJardinSearch" class="textInput serchInputFoor"><br><br>
+    <input type="text" placeholder="Prenom Jardinier" id="prenomJardinierJardinSearch" class="textInput serchInputFoor">
+    <input type="text" style="visibility: hidden;"  class="textInput serchInputFoor">
+</div> 
+<br>
+<input type="button" onclick="searchJardin()" class="btnInput" value="Chercher">
+<input type="button" onclick="getDataJardin()" class="btnInput" value="Actualiser">
+
+<br>
+<br>
+                    <div class="containerListTable">
+                        <table>
+                <tr id="header">
+                    <th>Jardin</th>
+                    <th>Nom</th>
+                    <th>Jardinier</th>
+                    <th>Ville</th>
+                    <th>Adresse</th>
+                    <th>Mumero</th>
+                    <th colspan="3">Options</th>
+                </tr>
+                <tbody id="listJardin">
+                </tbody>
+            </table>
+                
+                       </div>
+        <br>
+        <ion-icon class="Icon Icon_nav" onclick="navDataJardin('pre')" name="chevron-back-outline"></ion-icon>
+        <ion-icon class="Icon Icon_nav" onclick="navDataJardin('nex')" name="chevron-forward-outline"></ion-icon>
+                </div><br>
+                <div class="latest">
+                    <center>
+                        <h3>Les Jardinier les plus recomender : <span id="resulePlanteByPrice"></span></h3>
+                        <div id="listMostRecomended">
+
+                        </div>
+  
+                    </center>
+                </div>
+            </div>
+            <br>
+            <br>
+        </center>
+        <!-- charts -->
+    </div>
+</div>
+</body>
+{% endblock %}
